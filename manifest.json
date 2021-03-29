@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Always Green",
+  "description": "This extension makes your stonks green no matter how much of your dad's money you're wasting",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "stonksGuy.png"
+  },
+  "permissions": ["*://*.robinhood.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.robinhood.com/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
