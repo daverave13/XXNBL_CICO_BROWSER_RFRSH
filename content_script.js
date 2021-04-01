@@ -1,16 +1,18 @@
-// log it out so you know it's working :)
-console.log("content scripts");
+// Initializations
+const minutesToWait = 10;
 
-// define behavior
-function updateStrokeColor(color) {
-  let paths = document.querySelectorAll("path");
 
-  for (path of paths) {
-    path.style.stroke = color;
-  }
-}
+// Built in setInterval function 
+// Starts 10 minute timer, reloads page after time is up
+let interval = window.setInterval(() => {
+  location.reload(true);
+}, 1000 * 60 * minutesToWait);
 
-// everything inside the {} below will be ran on a loop, loop delay is defined at the end in ms.
-window.setInterval(function() {
-  updateStrokeColor("#00C805");
-}, 1000);
+
+// Add Event listener to entire document to reset timer when any input is detected
+document.querySelector('html').addEventListener('click', () => {
+  window.clearInterval(interval);
+  interval = window.setInterval(() => {
+    location.reload(true);
+  }, 1000 * 60 * minutesToWait);
+});

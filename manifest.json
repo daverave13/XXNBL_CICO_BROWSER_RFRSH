@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
-  "name": "Always Green",
-  "description": "This extension makes your stonks green no matter how much of your dad's money you're wasting",
+  "name": "XXNBL_CICO_BROWSER_RFRSH",
+  "description": "Refreshes browser window after period of inactivity",
   "version": "1.0",
   "browser_action": {
     "default_icon": "stonksGuy.png"
   },
-  "permissions": ["*://*.robinhood.com/*"],
+  "permissions": ["*://kiosk.niagarawater.com/*","*://dev-kiosk.niagarawater.com/*"],
   "content_scripts": [
     {
-      "matches": ["*://*.robinhood.com/*"],
+      "matches": ["*://kiosk.niagarawater.com/*","*://dev-kiosk.niagarawater.com/*"],
       "js": ["content_script.js"]
     }
   ]
